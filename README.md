@@ -1,4 +1,10 @@
 <p align="center">
+    <img src="https://github.com/74oshua/FlyDangerousWithLidar/blob/main/lidar-display.png" alt="" width="400" />
+</p>
+
+This fork turns the panel on the right hand side of the cockpit into a Lidar display. It shows collidable objects in your direction of travel, with the green crosshair in the middle showing where you'll drift without any additional acceleration.
+
+<p align="center">
     <img src="https://github.com/jukibom/FlyDangerous/blob/main/Assets/Textures/UI/logo-dropshadow.png" alt="" data-canonical-src="https://github.com/jukibom/FlyDangerous/blob/main/Assets/Textures/UI/logo-dropshadow.png" width="400" />
 </p>
 
@@ -80,7 +86,7 @@ The game supports raw telemetry output in the form of a binary byte or json fire
 
 ## Building
 
-Unity editor version: `2022.3.4f1 LTS`
+Unity build: 2022.2.13f1
 
 The release build is reliant on some paid assets (follow instructions underneath to build without for dev purposes!):
 
