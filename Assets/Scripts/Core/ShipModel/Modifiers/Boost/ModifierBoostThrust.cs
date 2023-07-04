@@ -17,7 +17,7 @@ namespace Core.ShipModel.Modifiers.Boost {
             get => _useDistortion;
             set {
                 _useDistortion = value;
-                MeshRenderer.material.SetInt(includeDistortion, _useDistortion ? 1 : 0);
+                MeshRenderer.sharedMaterial.SetInt(includeDistortion, _useDistortion ? 1 : 0);
             }
         }
 
