@@ -1,4 +1,5 @@
 using Core.Player;
+using Core.ShipModel.Feedback;
 using Core.ShipModel.Feedback.interfaces;
 using GameUI.Components.Terrain_Indicator;
 using Misc;
@@ -12,8 +13,12 @@ namespace Core.ShipModel {
         [SerializeField] private CanvasGroup tviIndicators;
         [SerializeField] private Image tviForward;
         [SerializeField] private Image tviReverse;
+        [SerializeField] private Image accForward;
+        [SerializeField] private Image accReverse;
         [SerializeField] private float tviAlphaSmoothing = 0.5f;
         [SerializeField] private float tviPositionalSmoothing = 0.5f;
+        [SerializeField] private float accPositionalSmoothing = 0.2f;
+        [SerializeField] private float accLookahead = 1f;
         [SerializeField] private int indicatorDistance = 500;
         [SerializeField] private CanvasGroup terrainIndicator;
         [SerializeField] private OrientationIndicator orientationIndicator;
@@ -32,6 +37,8 @@ namespace Core.ShipModel {
         private Vector3 _lookAtUpVector;
         private Vector3 _targetTVIForwardPosition;
         private Vector3 _targetTVIReversePosition;
+        private Vector3 _targetAccForwardPosition;
+        private Vector3 _targetAccReversePosition;
         private float _targetTVIAlpha;
         private IShipInstrumentData _shipInstrumentData;
         private IShipMotionData _shipMotionData;
@@ -89,21 +96,31 @@ namespace Core.ShipModel {
 
             var tviForwardTransform = tviForward.transform;
             var tviReverseTransform = tviReverse.transform;
+            var accForwardTransform = accForward.transform;
+            var accReverseTransform = accReverse.transform;
             var tviForwardLocalPosition = tviForwardTransform.localPosition;
             var tviReverseLocalPosition = tviReverseTransform.localPosition;
+            var accForwardLocalPosition = accForwardTransform.localPosition;
+            var accReverseLocalPosition = accReverseTransform.localPosition;
 
             // interpolate values
             tviIndicators.alpha = Mathf.Lerp(tviIndicators.alpha, _targetTVIAlpha, tviAlphaSmoothing);
             tviForwardLocalPosition = Vector3.Lerp(tviForwardLocalPosition, _targetTVIForwardPosition, tviPositionalSmoothing);
             tviReverseLocalPosition = Vector3.Lerp(tviReverseLocalPosition, _targetTVIReversePosition, tviPositionalSmoothing);
+            accForwardLocalPosition = Vector3.Lerp(accForwardLocalPosition, _targetAccForwardPosition, accPositionalSmoothing);
+            accReverseLocalPosition = Vector3.Lerp(tviReverseLocalPosition, _targetAccReversePosition, accPositionalSmoothing);
 
             // make sure the indicators are always at the required distance away on the sphere (may interpolate through the camera otherwise!)
             tviForwardTransform.localPosition = tviForwardLocalPosition.normalized * indicatorDistance;
             tviReverseTransform.localPosition = tviReverseLocalPosition.normalized * indicatorDistance;
+            accForwardTransform.localPosition = accForwardLocalPosition.normalized * indicatorDistance;
+            accReverseTransform.localPosition = accReverseLocalPosition.normalized * indicatorDistance;
 
             var mainCameraTransform = _mainCamera.transform;
             tviForwardTransform.LookAt(mainCameraTransform, _lookAtUpVector);
             tviReverseTransform.LookAt(mainCameraTransform, _lookAtUpVector);
+            accForwardTransform.LookAt(mainCameraTransform, _lookAtUpVector);
+            accReverseTransform.LookAt(mainCameraTransform, _lookAtUpVector);
 
             var player = FdPlayer.FindLocalShipPlayer;
             if (player && _mainCamera) {
@@ -132,6 +149,8 @@ namespace Core.ShipModel {
 
                 _targetTVIForwardPosition = positionVector * indicatorDistance;
                 _targetTVIReversePosition = positionVector * (indicatorDistance * -1);
+                _targetAccForwardPosition = (_targetTVIForwardPosition.normalized * _shipMotionData.CurrentLateralVelocity.magnitude + accLookahead * 0.5f * Mathf.Pow(Time.fixedDeltaTime, 2) * _shipMotionData.CurrentLateralForce).normalized * indicatorDistance;
+                _targetAccReversePosition = (_targetTVIReversePosition.normalized * _shipMotionData.CurrentLateralVelocity.magnitude - accLookahead * 0.5f * Mathf.Pow(Time.fixedDeltaTime, 2) * _shipMotionData.CurrentLateralForce).normalized * indicatorDistance;
 
                 // Fade out the indicators when either slowing down or interpolating the position inverse (i.e. when the indicator is getting closer which it really shouldn't)
                 _targetTVIAlpha = velocity.magnitude.Remap(2, 10, 0, 1);
