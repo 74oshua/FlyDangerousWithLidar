@@ -164,7 +164,10 @@ namespace Core.Player {
             // draw input values
             // TODO: Tidy this up, reuse for replays etc (move to ship physics class most likely)
             var showInputDisplay = Preferences.Instance.GetBool("enableInputOverlay");
-            inGameUI.InputDisplay.gameObject.SetActive(showInputDisplay);
+            if (inGameUI && inGameUI.InputDisplay)
+            {
+                inGameUI.InputDisplay.gameObject.SetActive(showInputDisplay);
+            }
             if (showInputDisplay) {
                 var showRaw = Preferences.Instance.GetBool("enableInputOverlayAsRaw");
                 var multiplier = showRaw ? 32768 : 1;
