@@ -811,7 +811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54487937050516791, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Select  |  Gamepad
+      value: Select  |  Xbox Controller
       objectReference: {fileID: 0}
     - target: {fileID: 55687390006147244, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -1643,7 +1643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 841025487442110660, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: unbound primary
+      value: Z  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 841025487442110662, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -1907,7 +1907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1043501183615782891, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Button North  |  Gamepad
+      value: Y  |  Xbox Controller
       objectReference: {fileID: 0}
     - target: {fileID: 1043501184071129761, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -2071,7 +2071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1279847679693427285, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: D-Pad/Right  |  Gamepad
+      value: D-Pad Right  |  Xbox Controller
       objectReference: {fileID: 0}
     - target: {fileID: 1279847679693427287, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -2371,7 +2371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1583571443160406451, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
+<<<<<<< HEAD
       value: Button 4  |  Logitech Extreme 3D
+=======
+      value: Left Stick Press  |  Xbox Controller
+>>>>>>> ca3d6bae (added acceleration indicator)
       objectReference: {fileID: 0}
     - target: {fileID: 1583571443660884063, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -3547,7 +3551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2547835201963038572, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: D-Pad/Left  |  Gamepad
+      value: D-Pad Left  |  Xbox Controller
       objectReference: {fileID: 0}
     - target: {fileID: 2547835201963038574, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -4351,7 +4355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3307466062678151607, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: unbound secondary
+      value: Num 2  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 3307466063134541053, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -6211,7 +6215,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5661076544222040665, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
+<<<<<<< HEAD
       value: Button 3  |  Logitech Extreme 3D
+=======
+      value: B  |  Xbox Controller
+>>>>>>> ca3d6bae (added acceleration indicator)
       objectReference: {fileID: 0}
     - target: {fileID: 5661076544222040667, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -6375,7 +6383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5847699359095334045, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Button West  |  Gamepad
+      value: X  |  Xbox Controller
       objectReference: {fileID: 0}
     - target: {fileID: 5847699359192544627, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
@@ -6923,7 +6931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6362337237435233297, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: unbound primary
+      value: C  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 6362337237435233299, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -6955,7 +6963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6417171857686896877, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: D-Pad/Up  |  Gamepad
+      value: D-Pad Up  |  Xbox Controller
       objectReference: {fileID: 0}
     - target: {fileID: 6417171857686896879, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -8571,7 +8579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7752678464352527828, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: D-Pad/Down  |  Gamepad
+      value: D-Pad Down  |  Xbox Controller
       objectReference: {fileID: 0}
     - target: {fileID: 7752678464352527830, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -8943,7 +8951,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067606316203671705, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
+<<<<<<< HEAD
       value: Trigger  |  Logitech Extreme 3D
+=======
+      value: Back  |  Mouse
+>>>>>>> ca3d6bae (added acceleration indicator)
       objectReference: {fileID: 0}
     - target: {fileID: 8067606316203671707, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
