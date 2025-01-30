@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+using Core.Player;
 using UnityEngine;
 
 namespace Core.ShipModel.Modifiers.Boost {
@@ -36,11 +38,24 @@ namespace Core.ShipModel.Modifiers.Boost {
         public void ApplyModifierEffect(Rigidbody shipRigidBody, ref AppliedEffects effects) {
             if (!_boostSound.isPlaying) _boostSound.Play();
 
-            // old implementation
-            // effects.shipForce += transform.forward * shipForceAdd;
+            ShipPhysics physics = shipRigidBody.GetComponent<ShipPlayer>().ShipPhysics;
 
-            // new code
-            effects.shipForce += (transform.forward * 1950 - shipRigidBody.velocity) * shipRigidBody.mass / Mathf.Sqrt(Time.fixedDeltaTime);
+            if (shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters.use_old_boost)
+            {
+                Debug.Log("using old boost");
+
+                // old implementation
+                effects.shipForce += transform.forward * shipForceAdd;
+            }
+            else
+            {
+                Debug.Log("using new boost");
+
+                // new code
+                float max_speed = 800 + physics.CurrentBoostedMaxSpeedDelta + effects.shipDeltaSpeedCap;
+                effects.shipForce += (transform.forward * max_speed - shipRigidBody.velocity) * shipRigidBody.mass / Mathf.Sqrt(Time.fixedDeltaTime) * 0.5f;
+            }
+            
             effects.shipDeltaSpeedCap += shipSpeedAdd;
             // apply additional thrust if the ship is facing the correct direction
             if (Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0) effects.shipDeltaThrust += shipThrustAdd;

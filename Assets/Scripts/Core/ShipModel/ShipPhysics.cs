@@ -554,6 +554,7 @@ namespace Core.ShipModel {
 
         private void ApplyFlightForces() {
             /* GRAVITY */
+            Debug.DrawLine(targetRigidbody.transform.position, targetRigidbody.transform.position + _modifierEngine.AppliedEffects.shipForce, Color.black);
             var gravity = Game.Instance.LoadedLevelData.gravity?.ToVector3() ?? Vector3.zero;
             targetRigidbody.AddForce(targetRigidbody.mass * gravity);
 
@@ -618,6 +619,9 @@ namespace Core.ShipModel {
             CurrentFrameThrust =
                 thrustInput * (FlightParameters.maxThrust + _modifierEngine.AppliedEffects.shipDeltaThrust);
             CurrentFrameTorque = torque / FlightParameters.inertiaTensorMultiplier;
+
+            // reset modifier engine for this frame
+            // _modifierEngine.AppliedEffects.shipForce = Vector3.zero;
         }
 
         #region Flight Assist Calculations

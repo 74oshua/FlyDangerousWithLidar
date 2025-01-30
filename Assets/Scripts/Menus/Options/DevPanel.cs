@@ -1,6 +1,7 @@
 using System.Globalization;
 using Core;
 using Core.ShipModel;
+using FdUI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,6 +31,7 @@ public class DevPanel : MonoBehaviour {
     [SerializeField] private InputField boostMaxDivertablePowerTextField;
     [SerializeField] private InputField intertialTensorMultiplierTextField;
     [SerializeField] private InputField minUserLimitedVelocityTextField;
+    [SerializeField] private Checkbox useOldBoostCheckbox;
 
     private bool _initialised;
 
@@ -87,6 +89,7 @@ public class DevPanel : MonoBehaviour {
             defaults.inertiaTensorMultiplier.ToString(CultureInfo.InvariantCulture);
         minUserLimitedVelocityTextField.placeholder.GetComponent<Text>().text =
             defaults.minUserLimitedVelocity.ToString(CultureInfo.InvariantCulture);
+        useOldBoostCheckbox.isChecked = defaults.use_old_boost;
 
         UpdateTextFields(Game.Instance.ShipParameters);
     }
@@ -215,6 +218,7 @@ public class DevPanel : MonoBehaviour {
                 float.Parse(intertialTensorMultiplierTextField.text, CultureInfo.InvariantCulture),
             minUserLimitedVelocity =
                 float.Parse(minUserLimitedVelocityTextField.text, CultureInfo.InvariantCulture),
+            use_old_boost = useOldBoostCheckbox.isChecked,
             boostSpoolUpTime = 1 // can't currently change this
         };
     }

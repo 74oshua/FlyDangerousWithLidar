@@ -41,6 +41,7 @@ namespace Core.ShipModel
             public const float BoostCapacityPercentChargeRate = 10f;
             public const float BoostMaxDivertablePower = 0.4f;
             public const float MinUserLimitedVelocity = 250f;
+            public const bool UseOldBoost = false;
         }
         
         [JsonProperty(Order = 1), DefaultValue(DefaultValues.Mass)]
@@ -120,6 +121,9 @@ namespace Core.ShipModel
         
         [JsonProperty(Order = 26), DefaultValue(DefaultValues.MinUserLimitedVelocity)]
         public float minUserLimitedVelocity = DefaultValues.MinUserLimitedVelocity;
+
+        [JsonProperty(Order = 27), DefaultValue(DefaultValues.UseOldBoost)]
+        public bool use_old_boost = DefaultValues.UseOldBoost;
 
         public string ToJsonString()
         {
