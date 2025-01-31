@@ -63,13 +63,16 @@ namespace Core.ShipModel.Modifiers.Boost {
 
         public void ApplyInitialEffect(Rigidbody shipRigidBody, ref AppliedEffects effects)
         {
+            Debug.Log("Singularity!");
             if (shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters.use_old_boost)
             {
                 return;
             }
-
-            effects.shipDeltaSpeedCap += shipSpeedAdd * 10;
-            Debug.Log("Singularity!");
+            
+            // estimates the number of frames the shipDeltaCap would normally be increased in the original implementation
+            // rough approximation, at around 563000 m/s this stops increasing the speed cap
+            float num_frames = Mathf.Max(-Mathf.Log(shipRigidBody.velocity.magnitude / 100) * 3 + 19, 0);
+            effects.shipDeltaSpeedCap += shipSpeedAdd * num_frames;
         }
     }
 }

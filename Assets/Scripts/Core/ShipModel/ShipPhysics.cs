@@ -737,7 +737,6 @@ namespace Core.ShipModel {
                     var modifier = raycastHit.collider.GetComponentInParent(typeof(IModifier));
                     if (modifier)
                     {
-                        _modifierEngine.ApplyModifier(targetRigidbody, modifier as IModifier);
                         _activeModifiers.Add(modifier);
                     }
                 }
@@ -748,6 +747,7 @@ namespace Core.ShipModel {
                     {
                         _modifierEngine.ApplyInitial(targetRigidbody, _activeModifiers[i] as IModifier);
                     }
+                    _modifierEngine.ApplyModifier(targetRigidbody, _activeModifiers[i] as IModifier);
                 }
             }
         }
