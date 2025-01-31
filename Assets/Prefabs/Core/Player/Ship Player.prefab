@@ -1643,7 +1643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 841025487442110660, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Z  |  Keyboard
+      value: unbound primary
       objectReference: {fileID: 0}
     - target: {fileID: 841025487442110662, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -1847,7 +1847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 989826595527348400, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: stick/y  |  Thrustmaster T.16000M
+      value: Right Stick/Y  |  Gamepad
       objectReference: {fileID: 0}
     - target: {fileID: 989826595527348559, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -2087,7 +2087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1279847679905973179, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Right  |  Keyboard
+      value: Num 6  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 1279847680307727579, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -3291,7 +3291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269584340525385056, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Num 8  |  Keyboard
+      value: Down  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 2269584340525385058, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -3559,7 +3559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2547835201487455874, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Left  |  Keyboard
+      value: Num 4  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 2547835201963038572, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
@@ -4359,7 +4359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3307466062220230745, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Num 5  |  Keyboard
+      value: Up  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 3307466062220230747, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -4371,7 +4371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3307466062678151607, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Num 2  |  Keyboard
+      value: unbound secondary
       objectReference: {fileID: 0}
     - target: {fileID: 3307466063134541053, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -6747,7 +6747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6162434235901698684, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Num 6  |  Keyboard
+      value: Right  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 6162434235901698686, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -6947,7 +6947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6362337237435233297, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: C  |  Keyboard
+      value: unbound primary
       objectReference: {fileID: 0}
     - target: {fileID: 6362337237435233299, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -6979,7 +6979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6417171857649496323, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Up  |  Keyboard
+      value: Num 8  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 6417171857686896877, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
@@ -8151,7 +8151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7429823910937519941, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Num 4  |  Keyboard
+      value: Left  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 7429823910937519943, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -8615,7 +8615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7752678464667710522, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Down  |  Keyboard
+      value: Num 2  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 7761811846772498817, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -8979,11 +8979,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067606315865723255, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Forward  |  Mouse
+      value: Shift  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 8067606316203671705, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Back  |  Mouse
+      value: Button South  |  Gamepad
       objectReference: {fileID: 0}
     - target: {fileID: 8067606316203671707, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -9203,7 +9203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8176461985133431523, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: Alt  |  Keyboard
+      value: Control  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 8176461985186470669, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
@@ -9583,7 +9583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493707116350550677, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: rz  |  Thrustmaster T.16000M
+      value: Right Stick/X  |  Gamepad
       objectReference: {fileID: 0}
     - target: {fileID: 8493707116350550890, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer
@@ -10531,7 +10531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9221722727772827315, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Text
-      value: stick/x  |  Thrustmaster T.16000M
+      value: unbound primary
       objectReference: {fileID: 0}
     - target: {fileID: 9221722727772827468, guid: 002b0b7cbe816dc4db8ed488b0ed4f4e, type: 3}
       propertyPath: m_Layer

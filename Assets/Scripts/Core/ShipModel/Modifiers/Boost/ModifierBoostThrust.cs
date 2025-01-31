@@ -46,6 +46,7 @@ namespace Core.ShipModel.Modifiers.Boost {
 
                 // old implementation
                 effects.shipForce += transform.forward * shipForceAdd;
+                effects.shipDeltaSpeedCap += shipSpeedAdd;
             }
             else
             {
@@ -56,9 +57,19 @@ namespace Core.ShipModel.Modifiers.Boost {
                 effects.shipForce += (transform.forward * max_speed - shipRigidBody.velocity) * shipRigidBody.mass / Mathf.Sqrt(Time.fixedDeltaTime) * 0.5f;
             }
             
-            effects.shipDeltaSpeedCap += shipSpeedAdd;
             // apply additional thrust if the ship is facing the correct direction
             if (Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0) effects.shipDeltaThrust += shipThrustAdd;
+        }
+
+        public void ApplyInitialEffect(Rigidbody shipRigidBody, ref AppliedEffects effects)
+        {
+            if (shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters.use_old_boost)
+            {
+                return;
+            }
+
+            effects.shipDeltaSpeedCap += shipSpeedAdd * 10;
+            Debug.Log("Singularity!");
         }
     }
 }
