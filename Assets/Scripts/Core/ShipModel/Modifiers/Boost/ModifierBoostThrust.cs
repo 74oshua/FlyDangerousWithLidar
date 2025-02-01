@@ -58,7 +58,11 @@ namespace Core.ShipModel.Modifiers.Boost {
             }
             
             // apply additional thrust if the ship is facing the correct direction
-            if (Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0) effects.shipDeltaThrust += shipThrustAdd;
+            if (shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters.use_old_boost
+                && Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0)
+            {
+                effects.shipDeltaThrust += shipThrustAdd;
+            }
         }
 
         public void ApplyInitialEffect(Rigidbody shipRigidBody, ref AppliedEffects effects)
@@ -70,9 +74,14 @@ namespace Core.ShipModel.Modifiers.Boost {
             }
             
             // estimates the number of frames the shipDeltaCap would normally be increased in the original implementation
-            // rough approximation, at around 563000 m/s this stops increasing the speed cap
-            float num_frames = Mathf.Max(-Mathf.Log(shipRigidBody.velocity.magnitude / 100) * 3 + 19, 0);
+            float num_frames = Mathf.Max(-0.2f * (shipRigidBody.velocity.magnitude / 100f) + 15.2f, 0);
+            Debug.Log(num_frames);
+
             effects.shipDeltaSpeedCap += shipSpeedAdd * num_frames;
+            if (Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0)
+            {
+                effects.shipDeltaThrust += shipThrustAdd * num_frames;
+            }
         }
     }
 }
