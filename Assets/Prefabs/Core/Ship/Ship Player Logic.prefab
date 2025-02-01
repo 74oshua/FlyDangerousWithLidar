@@ -2446,7 +2446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 282986845187045611, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Right  |  Keyboard
+      value: Num 6  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 367881358914929689, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Color.b
@@ -2486,7 +2486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018818756963085958, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: unbound primary
+      value: C  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 1071423232568521902, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Color.b
@@ -2506,7 +2506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1109677226352176020, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Num 8  |  Keyboard
+      value: Up  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 1192188069687395118, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Color.b
@@ -2578,7 +2578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2573727877142095874, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Right Stick/X  |  Gamepad
+      value: rz  |  Thrustmaster T.16000M
       objectReference: {fileID: 0}
     - target: {fileID: 2573727877342269697, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
@@ -2594,7 +2594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2814928549927325812, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Control  |  Keyboard
+      value: Alt  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 2826849801537518584, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_RootOrder
@@ -2662,7 +2662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2995493770403820580, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: unbound primary
+      value: stick/x  |  Thrustmaster T.16000M
       objectReference: {fileID: 0}
     - target: {fileID: 2995493771543711015, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
@@ -2726,7 +2726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3563485556324793810, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Left  |  Keyboard
+      value: Num 4  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 3696789938995431766, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
@@ -2746,11 +2746,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4151728914909075982, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Button South  |  Gamepad
+      value: Back  |  Mouse
       objectReference: {fileID: 0}
     - target: {fileID: 4151728915112840160, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Shift  |  Keyboard
+      value: Forward  |  Mouse
       objectReference: {fileID: 0}
     - target: {fileID: 4196906462497372436, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Color.b
@@ -2794,7 +2794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4467300059130490541, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Num 2  |  Keyboard
+      value: Down  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 4467300059311423299, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
@@ -2850,7 +2850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5164200437309266220, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Num 6  |  Keyboard
+      value: Right  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 5164200437655996610, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
@@ -2858,7 +2858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5266727415154286583, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Down  |  Keyboard
+      value: Num 8  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 5266727415485189657, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
@@ -2938,7 +2938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617072406567537191, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Right Stick/Y  |  Gamepad
+      value: stick/y  |  Thrustmaster T.16000M
       objectReference: {fileID: 0}
     - target: {fileID: 6617072408512557860, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
@@ -2946,7 +2946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6756506070582194771, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: unbound primary
+      value: Z  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 6802189625389224132, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
@@ -3090,7 +3090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8445296986436819989, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Num 4  |  Keyboard
+      value: Left  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 8492251281701726389, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Color.b
@@ -3106,11 +3106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8903186128749480736, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: unbound secondary
+      value: Num 2  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 8903186128804715214, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Up  |  Keyboard
+      value: Num 5  |  Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 9172923972295468052, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Color.b

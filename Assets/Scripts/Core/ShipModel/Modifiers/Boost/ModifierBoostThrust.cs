@@ -74,7 +74,7 @@ namespace Core.ShipModel.Modifiers.Boost {
             }
             
             // estimates the number of frames the shipDeltaCap would normally be increased in the original implementation
-            float num_frames = Mathf.Max(-0.2f * (shipRigidBody.velocity.magnitude / 100f) + 15.2f, 0);
+            float num_frames = Mathf.Max(-0.202f * (shipRigidBody.velocity.magnitude / 100f) + 15.2f, 0);
             Debug.Log(num_frames);
 
             effects.shipDeltaSpeedCap += shipSpeedAdd * num_frames;
