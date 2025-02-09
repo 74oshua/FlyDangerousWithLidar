@@ -36,51 +36,46 @@ namespace Core.ShipModel.Modifiers.Boost {
         }
 
         public void ApplyModifierEffect(Rigidbody shipRigidBody, ref AppliedEffects effects) {
+            //Gets executed every tick the ship spends inside a modifier.
             if (!_boostSound.isPlaying) _boostSound.Play();
 
-            ShipPhysics physics = shipRigidBody.GetComponent<ShipPlayer>().ShipPhysics;
-
-            if (shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters.use_old_boost)
+            var parameters = shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters;
+            if (parameters.use_old_boost)
             {
-                Debug.Log("using old boost");
-
                 // old implementation
                 effects.shipForce += transform.forward * shipForceAdd;
                 effects.shipDeltaSpeedCap += shipSpeedAdd;
+                // apply additional thrust if the ship is facing the correct direction
+                if (Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0)
+                {
+                    effects.shipDeltaThrust += shipThrustAdd;
+                }
             }
             else
             {
-                Debug.Log("using new boost");
+                // new implementation
+                // This whole mess of normalisation factors should probably be replaced with a ship parameter called speedAddFactor or something
+                // for now it serves to ensure that the ships revector ability stays consistent for 
+                var thrustAddFactor = ShipParameters.Defaults.maxThrust / parameters.maxThrust * ShipParameters.Defaults.thrustBoostMultiplier / parameters.thrustBoostMultiplier;
+                var massNorm = parameters.mass / ShipParameters.Defaults.mass;
 
-                // new code
-                float max_speed = 800 + physics.CurrentBoostedMaxSpeedDelta + effects.shipDeltaSpeedCap;
-                effects.shipForce += (transform.forward * max_speed - shipRigidBody.velocity) * shipRigidBody.mass / Mathf.Sqrt(Time.fixedDeltaTime) * 0.5f;
-            }
-            
-            // apply additional thrust if the ship is facing the correct direction
-            if (shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters.use_old_boost
-                && Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0)
-            {
-                effects.shipDeltaThrust += shipThrustAdd;
+                effects.shipDeltaSpeedCap += shipSpeedAdd;
+                if (Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0) effects.shipDeltaThrust += shipThrustAdd * thrustAddFactor * massNorm;
             }
         }
 
         public void ApplyInitialEffect(Rigidbody shipRigidBody, ref AppliedEffects effects)
         {
-            Debug.Log("Singularity!");
-            if (shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters.use_old_boost)
+            var parameters = shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters;
+            if (!parameters.use_old_boost)
             {
-                return;
-            }
-            
-            // estimates the number of frames the shipDeltaCap would normally be increased in the original implementation
-            float num_frames = Mathf.Max(-0.202f * (shipRigidBody.velocity.magnitude / 100f) + 15.2f, 0);
-            Debug.Log(num_frames);
-
-            effects.shipDeltaSpeedCap += shipSpeedAdd * num_frames;
-            if (Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0)
-            {
-                effects.shipDeltaThrust += shipThrustAdd * num_frames;
+                float targetSpeed = 2000;  // this should be a shipParameter
+                var bleed = 0.95f;
+                var velPar = Mathf.Abs(Vector3.Dot(shipRigidBody.velocity, transform.forward)) * transform.forward;
+                var velPerp = shipRigidBody.velocity - velPar;
+                float normalisation = 28.125f * parameters.mass; // 28.125 is the time normalisation (dt sum_{n=1}^inf  (0.8^(2n)))^-1
+                float speed_dampling = Mathf.Exp(-(velPar.magnitude / targetSpeed + Mathf.Pow(velPar.magnitude, 2) / (2 * 6000 * 6000)));
+                effects.shipForce += normalisation * (targetSpeed * speed_dampling * transform.forward - bleed * velPerp);
             }
         }
     }
