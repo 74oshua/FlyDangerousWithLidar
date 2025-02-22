@@ -31,7 +31,11 @@ public class DevPanel : MonoBehaviour {
     [SerializeField] private InputField boostMaxDivertablePowerTextField;
     [SerializeField] private InputField intertialTensorMultiplierTextField;
     [SerializeField] private InputField minUserLimitedVelocityTextField;
-    [SerializeField] private Checkbox useOldBoostCheckbox;
+    [SerializeField] private Checkbox useAltBoostersCheckbox;
+    [SerializeField] private InputField boosterForceMultiplierTextField;
+    [SerializeField] private InputField boosterVelocityMultiplierTextField;
+    [SerializeField] private InputField boosterThrustMultiplierTextField;
+
 
     private bool _initialised;
 
@@ -89,7 +93,13 @@ public class DevPanel : MonoBehaviour {
             defaults.inertiaTensorMultiplier.ToString(CultureInfo.InvariantCulture);
         minUserLimitedVelocityTextField.placeholder.GetComponent<Text>().text =
             defaults.minUserLimitedVelocity.ToString(CultureInfo.InvariantCulture);
-        useOldBoostCheckbox.isChecked = defaults.use_old_boost;
+        useAltBoostersCheckbox.isChecked = defaults.useAltBoosters;
+        boosterForceMultiplierTextField.placeholder.GetComponent<Text>().text =
+            defaults.boosterForceMultiplier.ToString(CultureInfo.InvariantCulture);
+        boosterVelocityMultiplierTextField.placeholder.GetComponent<Text>().text =
+            defaults.boosterVelocityMultiplier.ToString(CultureInfo.InvariantCulture);
+        boosterThrustMultiplierTextField.placeholder.GetComponent<Text>().text =
+            defaults.boosterThrustMultiplier.ToString(CultureInfo.InvariantCulture);
 
         UpdateTextFields(Game.Instance.ShipParameters);
     }
@@ -160,6 +170,13 @@ public class DevPanel : MonoBehaviour {
             parameters.inertiaTensorMultiplier.ToString(CultureInfo.InvariantCulture);
         minUserLimitedVelocityTextField.text =
             parameters.minUserLimitedVelocity.ToString(CultureInfo.InvariantCulture);
+        useAltBoostersCheckbox.isChecked = parameters.useAltBoosters;
+        boosterForceMultiplierTextField.text =
+            parameters.boosterForceMultiplier.ToString(CultureInfo.InvariantCulture);
+        boosterVelocityMultiplierTextField.text =
+            parameters.boosterVelocityMultiplier.ToString(CultureInfo.InvariantCulture);
+        boosterThrustMultiplierTextField.text =
+            parameters.boosterThrustMultiplier.ToString(CultureInfo.InvariantCulture);
 
         _initialised = true;
     }
@@ -218,7 +235,13 @@ public class DevPanel : MonoBehaviour {
                 float.Parse(intertialTensorMultiplierTextField.text, CultureInfo.InvariantCulture),
             minUserLimitedVelocity =
                 float.Parse(minUserLimitedVelocityTextField.text, CultureInfo.InvariantCulture),
-            use_old_boost = useOldBoostCheckbox.isChecked,
+            useAltBoosters = useAltBoostersCheckbox.isChecked,
+            boosterForceMultiplier =
+                float.Parse(boosterForceMultiplierTextField.text, CultureInfo.InvariantCulture),
+            boosterVelocityMultiplier =
+                float.Parse(boosterVelocityMultiplierTextField.text, CultureInfo.InvariantCulture),
+            boosterThrustMultiplier =
+                float.Parse(boosterThrustMultiplierTextField.text, CultureInfo.InvariantCulture),
             boostSpoolUpTime = 1 // can't currently change this
         };
     }
