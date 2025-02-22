@@ -40,42 +40,34 @@ namespace Core.ShipModel.Modifiers.Boost {
             if (!_boostSound.isPlaying) _boostSound.Play();
 
             var parameters = shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters;
-            if (parameters.use_old_boost)
+            if (parameters.useAltBoosters)
             {
-                // old implementation
-                effects.shipForce += transform.forward * shipForceAdd;
-                effects.shipDeltaSpeedCap += shipSpeedAdd;
-                // apply additional thrust if the ship is facing the correct direction
-                if (Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0)
-                {
-                    effects.shipDeltaThrust += shipThrustAdd;
-                }
+                var norm = parameters.boosterThrustMultiplier * parameters.mass / ShipParameters.Defaults.mass;
+                effects.shipDeltaSpeedCap += parameters.boosterVelocityMultiplier * shipSpeedAdd;
+                if (Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0) effects.shipDeltaThrust += shipThrustAdd * norm;
             }
             else
             {
-                // new implementation
-                // This whole mess of normalisation factors should probably be replaced with a ship parameter called speedAddFactor or something
-                // for now it serves to ensure that the ships revector ability stays consistent for 
-                var thrustAddFactor = ShipParameters.Defaults.maxThrust / parameters.maxThrust * ShipParameters.Defaults.thrustBoostMultiplier / parameters.thrustBoostMultiplier;
-                var massNorm = parameters.mass / ShipParameters.Defaults.mass;
-
+                effects.shipForce += transform.forward * shipForceAdd;
                 effects.shipDeltaSpeedCap += shipSpeedAdd;
-                if (Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0) effects.shipDeltaThrust += shipThrustAdd * thrustAddFactor * massNorm;
+                // apply additional thrust if the ship is facing the correct direction
+                if (Vector3.Dot(transform.forward, shipRigidBody.transform.forward) > 0) effects.shipDeltaThrust += shipThrustAdd;
             }
         }
 
         public void ApplyInitialEffect(Rigidbody shipRigidBody, ref AppliedEffects effects)
         {
             var parameters = shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters;
-            if (!parameters.use_old_boost)
+            if (parameters.useAltBoosters)
             {
-                float targetSpeed = 2000;  // this should be a shipParameter
+                float targetSpeed = 2500;
                 var bleed = 0.95f;
                 var velPar = Mathf.Abs(Vector3.Dot(shipRigidBody.velocity, transform.forward)) * transform.forward;
                 var velPerp = shipRigidBody.velocity - velPar;
                 float normalisation = 28.125f * parameters.mass; // 28.125 is the time normalisation (dt sum_{n=1}^inf  (0.8^(2n)))^-1
-                float speed_dampling = Mathf.Exp(-(velPar.magnitude / targetSpeed + Mathf.Pow(velPar.magnitude, 2) / (2 * 6000 * 6000)));
-                effects.shipForce += normalisation * (targetSpeed * speed_dampling * transform.forward - bleed * velPerp);
+                float speed_dampling = Mathf.Exp(-(velPar.magnitude / targetSpeed + Mathf.Pow(velPar.magnitude,2)/(2*6000*6000)));
+                //boosterForceMultiplier is only applied to the Forward force
+                effects.shipForce += normalisation * (parameters.boosterForceMultiplier * targetSpeed * speed_dampling * transform.forward  - bleed*velPerp);
             }
         }
     }

@@ -44,35 +44,32 @@ namespace Core.ShipModel.Modifiers.Boost {
             var effectOverDistanceNormalised = 1 - distance.magnitude / (lengthMeters - streamCapsuleEndCapRadius);
 
             var parameters = shipRigidBody.gameObject.GetComponent<ShipPlayer>().ShipPhysics.FlightParameters;
-            if (parameters.use_old_boost)
+            if (parameters.useAltBoosters)
             {
-                effects.shipForce += Vector3.Lerp(Vector3.zero, streamTransform.forward * shipForceAdd, effectOverDistanceNormalised);
-
-                // apply additional thrust and max speed if the ship vector is facing the correct direction
-                if (Vector3.Dot(transform.forward, shipRigidBody.velocity) > 0) {
-                    effects.shipDeltaSpeedCap += Mathf.Lerp(0, shipSpeedAdd, effectOverDistanceNormalised);
-                    effects.shipDeltaThrust += Mathf.Lerp(0, shipThrustAdd, effectOverDistanceNormalised);
-                }
-            }
-            else
-            {
-                // This whole mess of normalisation factors should probably be replaced with a ship parameter called speedAddFactor or something
-                // for now it serves to ensure that the ships revector ability stays consistent for 
-                var thrustAddFactor = ShipParameters.Defaults.maxThrust / parameters.maxThrust * ShipParameters.Defaults.thrustBoostMultiplier / parameters.thrustBoostMultiplier;
                 var massNorm = parameters.mass / ShipParameters.Defaults.mass;
-
                 effects.shipForce += Vector3.Lerp(Vector3.zero, massNorm * shipForceAdd * streamTransform.forward, effectOverDistanceNormalised);
 
                 // apply additional thrust and max speed if the ship vector is facing the correct direction
                 if (Vector3.Dot(transform.forward, shipRigidBody.velocity) > 0)
                 {
+                    effects.shipDeltaSpeedCap += Mathf.Lerp(0, parameters.boosterVelocityMultiplier * shipSpeedAdd, effectOverDistanceNormalised);
+                    effects.shipDeltaThrust += Mathf.Lerp(0, parameters.boosterThrustMultiplier * massNorm * shipThrustAdd, effectOverDistanceNormalised);
+                }
+            }
+            else 
+            {
+                effects.shipForce += Vector3.Lerp(Vector3.zero, streamTransform.forward * shipForceAdd, effectOverDistanceNormalised);
+
+                // apply additional thrust and max speed if the ship vector is facing the correct direction
+                if (Vector3.Dot(transform.forward, shipRigidBody.velocity) > 0)
+                {
                     effects.shipDeltaSpeedCap += Mathf.Lerp(0, shipSpeedAdd, effectOverDistanceNormalised);
-                    effects.shipDeltaThrust += Mathf.Lerp(0, thrustAddFactor * massNorm * shipThrustAdd, effectOverDistanceNormalised);
+                    effects.shipDeltaThrust += Mathf.Lerp(0, shipThrustAdd, effectOverDistanceNormalised);
                 }
             }
         }
 
-        public void ApplyInitialEffect(Rigidbody ship, ref AppliedEffects effects) 
+        public void ApplyInitialEffect(Rigidbody ship, ref AppliedEffects effects)
         {}
 
         // for some reason the unity editor insists on resetting the vfx which makes building levels a PITA
