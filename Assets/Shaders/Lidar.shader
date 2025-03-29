@@ -1,6 +1,6 @@
 Shader "Lidar" {
     SubShader {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent" }
         Pass {
             CGPROGRAM
 
@@ -20,6 +20,7 @@ Shader "Lidar" {
 
             half4 frag(v2f i) : SV_Target {
                 return half4(1, 1, 1, 1) / (length(i.pos) / 1000);
+                // UNITY_OUTPUT_DEPTH(i.depth);
             }
             ENDCG
         }

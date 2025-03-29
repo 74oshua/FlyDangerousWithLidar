@@ -2750,7 +2750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4151728915112840160, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Text
-      value: Back  |  Mouse
+      value: Forward  |  Mouse
       objectReference: {fileID: 0}
     - target: {fileID: 4196906462497372436, guid: 974ffa99ad2fb0e45896edea7f7ffd34, type: 3}
       propertyPath: m_Color.b
