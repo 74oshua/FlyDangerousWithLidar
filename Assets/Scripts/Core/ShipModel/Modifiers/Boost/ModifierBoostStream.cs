@@ -50,6 +50,9 @@ namespace Core.ShipModel.Modifiers.Boost {
             }
         }
 
+        public void ApplyInitialEffect(Rigidbody ship, ref AppliedEffects effects)
+        {}
+
         // for some reason the unity editor insists on resetting the vfx which makes building levels a PITA
         public void OnGUI() {
             TrailLengthMeters = lengthMeters;

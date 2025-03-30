@@ -319,6 +319,8 @@ namespace Core {
             IEnumerator LoadGame() {
                 yield return _levelLoader.ShowLoadingScreen();
 
+                Game.Instance.ActiveGameReplays = Replay.ReplaysForLevel(levelData);
+
                 // Position the active camera to the designated start location so we can be sure to load in anything
                 // important at that location as part of the load sequence
                 yield return FdPlayer.WaitForLoadingPlayer();
@@ -485,10 +487,10 @@ namespace Core {
 
             MenuFirstRun = false;
             var mapMagic = FindObjectOfType<MapMagicObject>();
-            // if (mapMagic) {
-            //     foreach (var terrainTile in mapMagic.tiles.All()) terrainTile.StopGenerate();
-            //     mapMagic.enabled = false;
-            // }
+            if (mapMagic) {
+                foreach (var terrainTile in mapMagic.tiles.All()) terrainTile.Stop();
+                mapMagic.enabled = false;
+            }
 
             var ship = FdPlayer.FindLocalShipPlayer;
             if (ship != null) ship.User.DisableGameInput();

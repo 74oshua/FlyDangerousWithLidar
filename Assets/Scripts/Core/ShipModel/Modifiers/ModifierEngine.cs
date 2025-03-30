@@ -60,6 +60,11 @@ namespace Core.ShipModel.Modifiers {
             modifier.ApplyModifierEffect(shipRigidBody, ref appliedEffects);
         }
 
+        public void ApplyInitial(Rigidbody shipRigidBody, IModifier modifier)
+        {
+            modifier.ApplyInitialEffect(shipRigidBody, ref appliedEffects);
+        }
+
         public void SetDirect(Vector3 shipForce, float shipDeltaSpeedCap, float shipDeltaThrust, float shipDrag, float shipAngularDrag) {
             appliedEffects.shipForce = shipForce;
             appliedEffects.shipDeltaSpeedCap = shipDeltaSpeedCap;

@@ -25,6 +25,7 @@ namespace Core.MapData {
 
         public IEnumerator StartGame(LevelData levelData) {
             LoadedLevelData = levelData;
+            Game.Instance.ShipParameters = levelData.shipParameters;
 
             var locationSceneToLoad = levelData.location.SceneToLoad;
             var environmentSceneToLoad = levelData.environment.SceneToLoad;
@@ -149,6 +150,7 @@ namespace Core.MapData {
                 var startPosition = SerializableVector3.FromVector3(player.AbsoluteWorldPosition);
                 var startRotation = SerializableVector3.FromVector3(player.transform.rotation.eulerAngles);
                 var levelData = track.Serialize();
+                levelData.shipParameters = Game.Instance.ShipParameters;
                 levelData.startPosition = startPosition;
                 levelData.startRotation = startRotation;
                 return levelData;
@@ -212,7 +214,7 @@ namespace Core.MapData {
 #endif
 
                 // absolutely nuke everything, we have very little control of lifecycle with respect to scene loading and what's already going on
-                // foreach (var terrainTile in mapMagic.tiles.All()) terrainTile.StopGenerate();
+                // foreach (var terrainTile in mapMagic.tiles.All()) terrainTile.Stop();
 
                 // our terrain gen may start disabled to prevent painful threading fun so enable it now
                 mapMagic.enabled = true;

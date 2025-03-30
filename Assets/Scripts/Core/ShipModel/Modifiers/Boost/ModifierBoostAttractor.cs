@@ -6,5 +6,8 @@ namespace Core.ShipModel.Modifiers.Boost {
             var distance = transform.position - ship.transform.position;
             effects.shipForce += Vector3.Lerp(Vector3.zero, distance.normalized * 1000000, 1 - distance.magnitude / 1000f);
         }
+
+        public void ApplyInitialEffect(Rigidbody ship, ref AppliedEffects effects)
+        {}
     }
 }
